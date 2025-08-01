@@ -10,7 +10,9 @@ export async function generateMetadata({
 }: {
   params: { product: string; pageType: string };
 }): Promise<Metadata> {
-  const selectedProduct = products.find((pd) => pd.pid === params.product);
+  const { product } = await params;
+
+  const selectedProduct = products.find((pd) => pd.pid === product);
 
   if (!selectedProduct) {
     return {

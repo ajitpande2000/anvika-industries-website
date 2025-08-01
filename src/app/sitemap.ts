@@ -1,6 +1,6 @@
 import { baseUrl, products, Services } from "@/constants/constants";
 
-export const Sitemap = () => {
+export const sitemap = () => {
   const listServices = Services.map((service) => {
     const routePath = service.route;
     return {
