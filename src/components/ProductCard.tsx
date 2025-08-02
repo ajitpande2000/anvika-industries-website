@@ -37,9 +37,9 @@ const ProductCard = ({ products, type }: ProductCardProps) => {
           </div>
         ))}
       </div>
-      <Link href={`/products/${type}`} className="mt-2 text-blue-500 block">
+      {/* <Link href={`/products/${type}`} className="mt-2 text-blue-500 block">
         Show More
-      </Link>
+      </Link> */}
     </div>
   );
 };

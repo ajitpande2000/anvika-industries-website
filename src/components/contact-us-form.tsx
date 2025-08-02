@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import Button from "./ui/button";
 import { whatsappNumber } from "@/constants/constants";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function ConversationForm() {
   const [formData, setFormData] = useState<{
@@ -87,7 +87,13 @@ Message: ${formData?.message}`;
         placeholder=""
       />
       <div className="text-center pt-6">
-        <Button type="submit" label="Send Message" />
+        <button
+          type="submit"
+          className="inline-flex items-center justify-center gap-2 text-white w-full py-2 sm:py-3 mt-3 rounded-full transition bg-[#25D366] hover:bg-[#1DA851] shadow-md text-sm sm:text-base"
+        >
+          <FaWhatsapp size={16} className="sm:size-[18px]" />
+          Chat on WhatsApp
+        </button>
       </div>
     </form>
   );

@@ -7,7 +7,8 @@ export const generateMetadata = async ({
 }: {
   params: { pageType: string };
 }): Promise<Metadata> => {
-  const service = Services.find((s) => s.route === `/${params.pageType}`);
+  const { pageType } = await params;
+  const service = Services.find((s) => s.route === `/${pageType}`);
 
   if (!service) {
     return {
@@ -39,12 +40,22 @@ const Page = ({ params }: { params: { pageType: string } }) => {
   return (
     <div className="mt-8">
       <h1 className="text-2xl font-bold ml-8">{service?.name}</h1>
+      <p className="ml-8 text-gray-600 mb-4">{service?.description}</p>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
         {filterProducts?.map((item: Product, index: number) => (
           <ProductList key={index} product={item} />
         ))}
       </div>
     </div>
+    // <div className="mt-8">
+    //   <h1 className="text-2xl font-bold ml-8">{service?.name}</h1>
+    //   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+    //     {filterProducts?.map((item: Product, index: number) => (
+    //       <ProductList key={index} product={item} />
+    //     ))}
+    //   </div>
+    // </div>
   );
 };
 

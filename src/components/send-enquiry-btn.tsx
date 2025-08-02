@@ -1,6 +1,5 @@
-"use client";
-
 import { whatsappNumber } from "@/constants/constants";
+import { FaWhatsapp } from "react-icons/fa";
 
 type ButtonProp = {
   type?: "submit" | "button" | "reset";
@@ -16,8 +15,9 @@ const SendEnquiryButton = ({
   message = "Hiii",
 }: ButtonProp) => {
   const baseClasses =
-    "text-white w-full py-2 mt-3 rounded-md transition bg-gradient-to-br from-gray-700 to-gray-600 hover:from-gray-900 hover:to-gray-800";
+    "flex items-center justify-center gap-2 text-white w-full py-3 mt-3 rounded-md transition bg-[#25D366] hover:bg-[#1DA851] shadow-md"; // WhatsApp green colors
   const encodedMessage = encodeURIComponent(message);
+
   return (
     <a
       href={`https://wa.me/${whatsappNumber.replace(
@@ -28,7 +28,7 @@ const SendEnquiryButton = ({
       rel="noopener noreferrer"
     >
       <button type={type} className={`${baseClasses} ${className}`}>
-        {label}
+        <FaWhatsapp size={18} /> {label}
       </button>
     </a>
   );

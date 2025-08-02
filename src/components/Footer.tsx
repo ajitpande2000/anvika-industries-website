@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col ">
       {/* Main Content Wrapper */}
       <main className="flex-grow">
         {/* Your main page content will go here */}

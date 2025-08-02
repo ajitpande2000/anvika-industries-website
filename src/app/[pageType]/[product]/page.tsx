@@ -96,18 +96,18 @@ const Page = async ({
 
             <SendEnquiryButton
               className={"w-[50%]"}
-              label="Send Enquiry"
+              label="Send Enquiry On WhatsApp"
               message={`
-                Hiii,
-                I have enquiry for below product.
-                Product Name : ${selectedProduct?.name}
-                Type: ${service?.name || selectedProduct?.type}`}
+                Hiii,I have enquiry for below product.Product Name : ${
+                  selectedProduct?.name
+                } Type: ${service?.name || selectedProduct?.type}`}
             />
           </div>
         </div>
       </div>
       <div className="mt-8">
-        <h1 className="text-2xl font-bold ml-8">Simmilar Category</h1>
+        <h1 className="text-2xl font-bold ml-8">Simmilar Category Products</h1>
+        <p className="ml-8 text-gray-600 mb-4">{service?.description}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
           {filterProducts?.map((item: Product, index: number) => (
             <ProductList key={index} product={item} />
