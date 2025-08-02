@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,17 +18,25 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full bg-gradient-to-br from-gray-900 to-gray-800 shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center p-4">
-        <div className="flex items-center">
-          <div className="w-10 h-10 bg-white text-red-600 flex justify-center items-center rounded-full shadow-lg">
-            <span className="text-xl font-bold">A</span>
-          </div>
-          <Link href="/">
+        <Link href="/">
+          <div className="flex items-center">
+            <div className="w-10 h-10 bg-white text-red-600 flex justify-center items-center rounded-full shadow-lg">
+              <span className="text-xl font-bold">
+                <Image
+                  src="/favicon.ico"
+                  alt="WhatsApp Icon"
+                  width={26}
+                  height={26}
+                  className="cursor-pointer hover:scale-110 transition"
+                />
+              </span>
+            </div>
+
             <h1 className="ml-3 text-white text-2xl font-bold">
               Anvika Industries
             </h1>
-          </Link>
-        </div>
-
+          </div>
+        </Link>
         <ul className="hidden md:flex space-x-8">
           <li>
             <Link href="/" className={getLinkStyle("/")}>
