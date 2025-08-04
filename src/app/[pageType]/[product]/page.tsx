@@ -5,13 +5,20 @@ import { products, Services } from "@/constants/constants";
 import Image from "next/image";
 import { Metadata } from "next";
 
+export const dynamic = "force-static";
+
+type PageParams = {
+  product: string;
+  pageType: string;
+};
+
+// ✅ Metadata generator
 export async function generateMetadata({
   params,
 }: {
-  params: { product: string; pageType: string };
+  params: PageParams;
 }): Promise<Metadata> {
   const { product } = await params;
-
   const selectedProduct = products.find((pd) => pd.pid === product);
 
   if (!selectedProduct) {
@@ -47,39 +54,36 @@ export async function generateMetadata({
   };
 }
 
-const Page = async ({
-  params,
-}: {
-  params: { product: string; pageType: string };
-}) => {
-  const { product, pageType } = await params;
+// ✅ Page Component - must NOT be async if no await is used
+export default function Page({ params }: { params: PageParams }) {
+  const { product, pageType } = params;
   const selectedProduct = products.find((pd) => pd.pid === product);
   const service = Services.find((s) => s.type === selectedProduct?.type);
   const filterProducts = products?.filter((item) => item?.type == pageType);
-  console.log("product", product, selectedProduct);
+
   if (!selectedProduct) {
     return <h1 className="text-2xl font-bold mt-6">Page Not Found</h1>;
   }
-  console.log("selectedProduct", params, selectedProduct.name);
 
   return (
     <div className="mt-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Product Image */}
           <div className="lg:col-span-6">
             <div className="bg-white rounded-lg shadow-md p-4">
-              <div className="relative w-full lg:h-96  h-56">
+              <div className="relative w-full lg:h-96 h-56">
                 <Image
                   src={selectedProduct.img || "/images/dummy-image.png"}
                   alt={selectedProduct.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-md"
+                  fill
+                  className="rounded-md object-cover"
                 />
               </div>
             </div>
           </div>
 
+          {/* Product Details */}
           <div className="lg:col-span-6 space-y-4">
             <h1 className="text-3xl font-bold text-gray-900">
               {selectedProduct.name}
@@ -95,18 +99,19 @@ const Page = async ({
             </p>
 
             <SendEnquiryButton
-              className={"w-[50%]"}
+              className="w-[50%]"
               label="Send Enquiry On WhatsApp"
-              message={`
-                Hiii,I have enquiry for below product.Product Name : ${
-                  selectedProduct?.name
-                } Type: ${service?.name || selectedProduct?.type}`}
+              message={`Hiii,I have enquiry for below product. Product Name : ${
+                selectedProduct?.name
+              } Type: ${service?.name || selectedProduct?.type}`}
             />
           </div>
         </div>
       </div>
+
+      {/* Similar Products */}
       <div className="mt-8">
-        <h1 className="text-2xl font-bold ml-8">Simmilar Category Products</h1>
+        <h1 className="text-2xl font-bold ml-8">Similar Category Products</h1>
         <p className="ml-8 text-gray-600 mb-4">{service?.description}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
           {filterProducts?.map((item: Product, index: number) => (
@@ -116,15 +121,12 @@ const Page = async ({
       </div>
     </div>
   );
-};
+}
 
-export default Page;
-
-export const generateStaticParams = async () => {
-  return products?.map((pd) => {
-    return {
-      product: pd.pid,
-      pageType: pd.type,
-    };
-  });
-};
+// ✅ Static Params for SSG
+export async function generateStaticParams(): Promise<PageParams[]> {
+  return products?.map((pd) => ({
+    product: pd.pid,
+    pageType: pd.type,
+  }));
+}
