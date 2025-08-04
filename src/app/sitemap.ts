@@ -1,6 +1,6 @@
 import { baseUrl, products, Services } from "@/constants/constants";
-
-export const sitemap = () => {
+export default async function sitemap() {
+  // export default const sitemap = () => {
   const listServices = Services.map((service) => {
     const routePath = service.route;
     return {
@@ -28,4 +28,4 @@ export const sitemap = () => {
   ];
 
   return [...listServices, ...listProduct, ...defaultSiteMap];
-};
+}

@@ -2,10 +2,11 @@ import ProductList from "@/components/ProductList";
 import { products, Services } from "@/constants/constants";
 import { Product } from "../types";
 import { Metadata } from "next";
+
 export const generateMetadata = async ({
   params,
 }: {
-  params: { pageType: string };
+  params: Promise<{ pageType: string }>;
 }): Promise<Metadata> => {
   const { pageType } = await params;
   const service = Services.find((s) => s.route === `/${pageType}`);
@@ -25,8 +26,14 @@ export const generateMetadata = async ({
   };
 };
 
-const Page = ({ params }: { params: { pageType: string } }) => {
-  const service = Services.find((s) => s.route === `/${params.pageType}`);
+// const Page = ({ params }: { params: { pageType: string } }) => {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ pageType: string }>;
+}) {
+  const { pageType } = await params;
+  const service = Services.find((s) => s.route === `/${pageType}`);
   const filterProducts = products?.filter(
     (item) => item?.type == service?.type
   );
@@ -35,7 +42,7 @@ const Page = ({ params }: { params: { pageType: string } }) => {
     return <h1 className="text-2xl font-bold mt-6">Page Not Found</h1>;
   }
 
-  console.log("pageType", params, params.pageType, service.name);
+  console.log("pageType", pageType, service.name);
 
   return (
     <div className="mt-8">
@@ -57,9 +64,9 @@ const Page = ({ params }: { params: { pageType: string } }) => {
     //   </div>
     // </div>
   );
-};
+}
 
-export default Page;
+// export default Page;
 
 export const generateStaticParams = async () => {
   return Services?.map((service) => {

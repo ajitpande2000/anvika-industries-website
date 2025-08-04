@@ -7,16 +7,11 @@ import { Metadata } from "next";
 
 export const dynamic = "force-static";
 
-type PageParams = {
-  product: string;
-  pageType: string;
-};
-
 // ✅ Metadata generator
 export async function generateMetadata({
   params,
 }: {
-  params: PageParams;
+  params: Promise<{ product: string }>;
 }): Promise<Metadata> {
   const { product } = await params;
   const selectedProduct = products.find((pd) => pd.pid === product);
@@ -55,11 +50,17 @@ export async function generateMetadata({
 }
 
 // ✅ Page Component - must NOT be async if no await is used
-export default function Page({ params }: { params: PageParams }) {
-  const { product, pageType } = params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ product: string }>;
+}) {
+  const { product } = await params;
   const selectedProduct = products.find((pd) => pd.pid === product);
   const service = Services.find((s) => s.type === selectedProduct?.type);
-  const filterProducts = products?.filter((item) => item?.type == pageType);
+  const filterProducts = products?.filter(
+    (item) => item?.type == selectedProduct?.type
+  );
 
   if (!selectedProduct) {
     return <h1 className="text-2xl font-bold mt-6">Page Not Found</h1>;
@@ -123,10 +124,8 @@ export default function Page({ params }: { params: PageParams }) {
   );
 }
 
-// ✅ Static Params for SSG
-export async function generateStaticParams(): Promise<PageParams[]> {
+export const generateStaticParams = async () => {
   return products?.map((pd) => ({
     product: pd.pid,
-    pageType: pd.type,
   }));
-}
+};
