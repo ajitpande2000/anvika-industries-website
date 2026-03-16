@@ -87,7 +87,7 @@ export const products = [
     pid: "toilet-roll",
     type: "house-keeping",
     name: "Toilet Roll",
-    img: "",
+    img: "/images/dummy-image.png",
     price: "100 Rs",
     userFriendlyTypeName: "House Keeping Material",
     metadata: {
@@ -257,7 +257,7 @@ export const products = [
     pid: "mops",
     type: "house-keeping",
     name: "Mops",
-    img: "",
+   img: "/images/dummy-image.png",
     price: "1000 Rs",
     userFriendlyTypeName: "House Keeping Material",
     metadata: {
@@ -270,7 +270,7 @@ export const products = [
     pid: "floor-polishers",
     type: "house-keeping",
     name: "Floor polishers",
-    img: "",
+   img: "/images/dummy-image.png",
     price: "200 Rs",
     userFriendlyTypeName: "House Keeping Material",
     metadata: {
@@ -283,7 +283,7 @@ export const products = [
     pid: "detergents",
     type: "house-keeping",
     name: "Detergents",
-    img: "",
+    img: "/images/dummy-image.png",
     price: "800 Rs",
     userFriendlyTypeName: "House Keeping Material",
     metadata: {
@@ -296,7 +296,7 @@ export const products = [
     pid: "vacuum-cleaners",
     type: "house-keeping",
     name: "Vacuum cleaners",
-    img: "",
+      img: "/images/dummy-image.png",
     price: "600 Rs",
     userFriendlyTypeName: "House Keeping Material",
     metadata: {
@@ -309,7 +309,7 @@ export const products = [
     pid: "buckets",
     type: "house-keeping",
     name: "Buckets",
-    img: "",
+     img: "/images/dummy-image.png",
     price: "300 Rs",
     userFriendlyTypeName: "House Keeping Material",
     metadata: {
@@ -477,7 +477,7 @@ export const products = [
     pid: "masks",
     type: "safety-products",
     name: "Masks",
-    img: "",
+   img: "/images/dummy-image.png",
     price: "1000 Rs",
     userFriendlyTypeName: "Industrial Safety Products",
     metadata: {
@@ -490,7 +490,7 @@ export const products = [
     pid: "protective-clothing",
     type: "safety-products",
     name: "Protective clothing",
-    img: "",
+     img: "/images/dummy-image.png",
     price: "200 Rs",
     userFriendlyTypeName: "Industrial Safety Products",
     metadata: {
@@ -709,5 +709,5 @@ export const products = [
   },
 ];
 
-export const whatsappNumber = "7030133284";
-export const baseUrl = "https://yourdomain.com";
+export const whatsappNumber = "87881 58825";
+export const baseUrl = "https://anvika-industries-supplier.vercel.app/";
