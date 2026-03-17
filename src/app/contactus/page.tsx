@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us | Anvika Industries Nashik",
-  description: "Get in touch with Anvika Industries – Nashik's trusted industrial supplier.",
+  description: `Get in touch with Anvika Industries – Nashik&apos;s trusted industrial supplier.`,
 };
 
 export default function ContactUs() {
@@ -19,7 +19,7 @@ export default function ContactUs() {
             Contact Us
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
-            Ready to discuss your industrial supply needs? We're here to help.
+            Ready to discuss your industrial supply needs? We&apos;re here to help.
           </p>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function ContactUs() {
                   Send Message
                 </h2>
                 <p className="text-lg sm:text-xl text-gray-600 max-w-md mx-auto">
-                  We'll respond within 2 hours
+                  We&apos;ll respond within 2 hours
                 </p>
               </div>
               <ConversationForm />
@@ -127,7 +127,7 @@ export default function ContactUs() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">Trusted By 500+ Businesses</h2>
             <p className="text-lg sm:text-xl opacity-95 mb-10 lg:mb-12 max-w-2xl mx-auto px-4">
-              Nashik's leading industrial supplier since 2010
+              Nashik&apos;s leading industrial supplier since 2010
             </p>
             <Link 
               href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=Hi%20Anvika%20Industries!`}

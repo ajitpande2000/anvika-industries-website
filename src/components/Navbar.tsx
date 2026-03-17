@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Mail, MapPin, ShoppingCart } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 
 const Navbar = () => {

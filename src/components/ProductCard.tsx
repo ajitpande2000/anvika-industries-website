@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-import { Heart, ShoppingBag,ArrowRight, Star } from "lucide-react";
+import { Heart, ShoppingBag, Star } from "lucide-react";
 interface Product {
   pid: string;
   type: string;
@@ -36,15 +36,7 @@ const ProductCard = ({ products, type }: ProductCardProps) => {
               Premium {type.toLowerCase()} for industrial use
             </p>
           </div>
-          {/* {products.length > 4 && (
-            <Link
-              href={`/${type}`}
-              className="group inline-flex items-center gap-2 text-base lg:text-lg font-semibold text-blue-600 hover:text-blue-700 self-start lg:self-center"
-            >
-              View All
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-          )} */}
+      
         </div>
 
         {/* Products Grid */}

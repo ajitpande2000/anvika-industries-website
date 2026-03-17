@@ -70,12 +70,12 @@ console.log("groupedProducts",groupedProducts)
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div className="py-8 sm:py-12 md:py-16 lg:py-20"> {/* Much smaller padding */}
       <div className="text-center text-white max-w-3xl mx-auto">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight">
-          Industrial Supplies
-          <span className="block text-blue-100 text-lg sm:text-xl md:text-2xl lg:text-3xl mt-2 font-light">
-            Nashik's #1 Choice
-          </span>
-        </h1>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight">
+  Industrial Supplies
+  <span className="block text-blue-100 text-lg sm:text-xl md:text-2xl lg:text-3xl mt-2 font-light">
+    {`Nashik's #1 Choice`}
+  </span>
+</h1>
         
         <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 max-w-xl mx-auto leading-relaxed">
           Housekeeping • Safety • Adhesives • Lubricants • Stationery

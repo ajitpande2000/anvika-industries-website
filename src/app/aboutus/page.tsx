@@ -73,8 +73,9 @@ export default function Page() {
               Anvika Industries
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 max-w-xl mx-auto opacity-95 leading-relaxed px-2">
-              Nashik's #1 Industrial Supplies Partner
+              {`Nashik's #1 Industrial Supplies Partner`}
             </p>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto px-2">
               <Link href="/categories" className="w-full sm:w-auto bg-white/90 backdrop-blur-sm text-blue-600 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all border border-white/30">
                 Explore Products
@@ -216,7 +217,7 @@ export default function Page() {
               Ready For Premium Supplies?
             </h2>
             <p className="text-lg sm:text-xl mb-10 sm:mb-12 opacity-95 max-w-xl mx-auto px-2">
-              Nashik's trusted partner for industrial excellence
+              {`Nashik's trusted partner for industrial excellence`}
             </p>
             <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 justify-center max-w-xl mx-auto">
               <Link 
